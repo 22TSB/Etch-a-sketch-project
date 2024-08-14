@@ -1,0 +1,70 @@
+main {
+    padding: 20px;
+    gap: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+details {
+    display: flex;
+    flex-direction: column;
+}
+button {
+    width: 200px;
+    padding: 8px;
+    background-color: whitesmoke;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 20px;
+}
+button:hover {
+    cursor: pointer;
+    background-color: rgb(235, 235, 235);   
+    transition: ease 0.4s;
+}
+.button-selected {
+    background-color: rgb(235, 235, 235);
+}
+.settings-buttons {
+    gap: 12px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.align-text {
+    text-align: center;
+}
+.project-title {
+    text-shadow: 4px 2px 4px gray;
+}
+.settings-buttons {
+    width: 50%;
+}
+.grid-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 672px;
+    border: 4px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+.sq-pixel-16, .sq-pixel-32, .sq-pixel-64, .sq-pixel-100 {
+    border: 1px solid rgba(245, 245, 245, 0.4);
+    background-color: rgba(0, 0, 0, 0);
+}
+.sq-pixel-16 {
+    width: 40px;
+    height: 40px;
+}
+.sq-pixel-32 {
+    width: 19px;
+    height: 19px;
+}
+.sq-pixel-64 {
+    width: 8.5px;
+    height: 8.5px;
+}
+.sq-pixel-100 {
+    width: 4.66px;
+    height: 4.66px;
+}
+/* 16D (40px) || 32D (19px) || 64D (8.5) || 100D (4.66) */
