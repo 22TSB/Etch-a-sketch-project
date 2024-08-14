@@ -5,10 +5,6 @@ main {
     justify-content: center;
     flex-wrap: wrap;
 }
-details {
-    display: flex;
-    flex-direction: column;
-}
 button {
     width: 200px;
     padding: 8px;
@@ -22,7 +18,7 @@ button:hover {
     transition: ease 0.4s;
 }
 .button-selected {
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(200, 200, 200);
 }
 .settings-buttons {
     gap: 12px;

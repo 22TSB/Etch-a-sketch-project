@@ -7,9 +7,13 @@ const button64px = document.querySelector(".button-64px");
 const button100px = document.querySelector(".button-100px");
 const buttonReset = document.querySelector(".reset-button");
 const getColor = document.querySelector(".input-color");
+const buttonOpacity = document.querySelector(".opacity-button");
+const buttonOpacity1 = document.querySelector(".opacity1-button");
+const buttonOpacity2 = document.querySelector(".opacity2-button");
 //---------BUTTONS---------------->
 var grid_rightnow = 16;
 var grid_color = false;
+var opactiy_level = 0;
 //---------GRID---------------->
 const DEFAULT_GRID = () => {
     for (i = 1;i <= 16*16;++i) {
@@ -82,32 +86,65 @@ const color_square = (e) => {
         if (available !== "grid-container") {
             let color_value = getColor.value;
             square.style.backgroundColor = color_value;
-            if (square.style.opacity === "0.1") {
-                square.style.opacity = "0.2";
+            if (opactiy_level === 0) {
+                if (square.style.opacity === "0.1") {
+                    square.style.opacity = "0.2";
+                }
+                else if (square.style.opacity === "0.2") {
+                    square.style.opacity = "0.3";
+                }
+                else if (square.style.opacity === "0.3") {
+                    square.style.opacity = "0.4";
+                }
+                else if (square.style.opacity === "0.4") {
+                    square.style.opacity = "0.5";
+                }
+                else if (square.style.opacity === "0.5") {
+                    square.style.opacity = "0.6";
+                }
+                else if (square.style.opacity === "0.6") {
+                    square.style.opacity = "0.7";
+                }
+                else if (square.style.opacity === "0.7") {
+                    square.style.opacity = "0.8";
+                }
+                else if (square.style.opacity === "0.8") {
+                    square.style.opacity = "0.9";
+                }
+                else if (square.style.opacity !== "0.9") {
+                    square.style.opacity = "0.1";
+                }
             }
-            else if (square.style.opacity === "0.2") {
-                square.style.opacity = "0.3";
+            else if (opactiy_level === 1) {
+                if (square.style.opacity === "0.1") {
+                    square.style.opacity = "0.3";
+                }
+                else if (square.style.opacity === "0.3") {
+                    square.style.opacity = "0.5";
+                }
+                else if (square.style.opacity === "0.5") {
+                    square.style.opacity = "0.7";
+                }
+                else if (square.style.opacity === "0.7") {
+                    square.style.opacity = "0.9";
+                }
+                else if (square.style.opacity !== `0.9`) {
+                    square.style.opacity = "0.1";
+                }
             }
-            else if (square.style.opacity === "0.3") {
-                square.style.opacity = "0.4";
-            }
-            else if (square.style.opacity === "0.4") {
-                square.style.opacity = "0.5";
-            }
-            else if (square.style.opacity === "0.5") {
-                square.style.opacity = "0.6";
-            }
-            else if (square.style.opacity === "0.6") {
-                square.style.opacity = "0.7";
-            }
-            else if (square.style.opacity === "0.7") {
-                square.style.opacity = "0.8";
-            }
-            else if (square.style.opacity === "0.8") {
-                square.style.opacity = "0.9";
-            }
-            else if (square.style.opacity !== `0.9`) {
-                square.style.opacity = "0.1";
+            else if (opactiy_level === 2) {
+                if (square.style.opacity === "0.1") {
+                    square.style.opacity = "0.3";
+                }
+                else if (square.style.opacity === "0.3") {
+                    square.style.opacity = "0.6";
+                }
+                else if (square.style.opacity === "0.6") {
+                    square.style.opacity = "0.9";
+                }
+                else if (square.style.opacity !== "0.9") {
+                    square.style.opacity = "0.1";
+                }
             }
         }
     }
@@ -117,32 +154,65 @@ const color_square = (e) => {
         if (available !== "grid-container") {
             let color_value = randomRGB();
             square.style.backgroundColor = color_value;
-            if (square.style.opacity === "0.1") {
-                square.style.opacity = "0.2";
+            if (opactiy_level === 0) {
+                if (square.style.opacity === "0.1") {
+                    square.style.opacity = "0.2";
+                }
+                else if (square.style.opacity === "0.2") {
+                    square.style.opacity = "0.3";
+                }
+                else if (square.style.opacity === "0.3") {
+                    square.style.opacity = "0.4";
+                }
+                else if (square.style.opacity === "0.4") {
+                    square.style.opacity = "0.5";
+                }
+                else if (square.style.opacity === "0.5") {
+                    square.style.opacity = "0.6";
+                }
+                else if (square.style.opacity === "0.6") {
+                    square.style.opacity = "0.7";
+                }
+                else if (square.style.opacity === "0.7") {
+                    square.style.opacity = "0.8";
+                }
+                else if (square.style.opacity === "0.8") {
+                    square.style.opacity = "0.9";
+                }
+                else if (square.style.opacity !== "0.9") {
+                    square.style.opacity = "0.1";
+                }
             }
-            else if (square.style.opacity === "0.2") {
-                square.style.opacity = "0.3";
+            else if (opactiy_level === 1) {
+                if (square.style.opacity === "0.1") {
+                    square.style.opacity = "0.3";
+                }
+                else if (square.style.opacity === "0.3") {
+                    square.style.opacity = "0.5";
+                }
+                else if (square.style.opacity === "0.5") {
+                    square.style.opacity = "0.7";
+                }
+                else if (square.style.opacity === "0.7") {
+                    square.style.opacity = "0.9";
+                }
+                else if (square.style.opacity !== `0.9`) {
+                    square.style.opacity = "0.1";
+                }
             }
-            else if (square.style.opacity === "0.3") {
-                square.style.opacity = "0.4";
-            }
-            else if (square.style.opacity === "0.4") {
-                square.style.opacity = "0.5";
-            }
-            else if (square.style.opacity === "0.5") {
-                square.style.opacity = "0.6";
-            }
-            else if (square.style.opacity === "0.6") {
-                square.style.opacity = "0.7";
-            }
-            else if (square.style.opacity === "0.7") {
-                square.style.opacity = "0.8";
-            }
-            else if (square.style.opacity === "0.8") {
-                square.style.opacity = "0.9";
-            }
-            else if (square.style.opacity !== `0.9`) {
-                square.style.opacity = "0.1";
+            else if (opactiy_level === 2) {
+                if (square.style.opacity === "0.1") {
+                    square.style.opacity = "0.3";
+                }
+                else if (square.style.opacity === "0.3") {
+                    square.style.opacity = "0.6";
+                }
+                else if (square.style.opacity === "0.6") {
+                    square.style.opacity = "0.9";
+                }
+                else if (square.style.opacity !== "0.9") {
+                    square.style.opacity = "0.1";
+                }
             }
         }
     }
@@ -153,6 +223,24 @@ const resetFunction = () => {
 const randomRGB = () => {
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
     return "#" + randomColor;
+}
+const selectOpacity = () => {
+    opactiy_level = 0;
+    buttonOpacity.setAttribute("class", "button-selected");
+    buttonOpacity1.removeAttribute("class", "button-selected");
+    buttonOpacity2.removeAttribute("class", "button-selected");
+}
+const selectOpacity1 = () => {
+    opactiy_level = 1;
+    buttonOpacity.removeAttribute("class", "button-selected");
+    buttonOpacity1.setAttribute("class", "button-selected");
+    buttonOpacity2.removeAttribute("class", "button-selected");
+}
+const selectOpacity2 = () => {
+    opactiy_level = 2;
+    buttonOpacity.removeAttribute("class", "button-selected");
+    buttonOpacity1.removeAttribute("class", "button-selected");
+    buttonOpacity2.setAttribute("class", "button-selected");
 }
 
 //---------SELECT-COLOR-------->
@@ -169,3 +257,8 @@ buttonReset.addEventListener("click", resetFunction);
 //---------COLOR-GRID---------->
 container.addEventListener("mouseover", color_square);
 //---------COLOR-GRID---------->
+//---------COLOR-OPACITY------->
+buttonOpacity.addEventListener("click", selectOpacity);
+buttonOpacity1.addEventListener("click", selectOpacity1);
+buttonOpacity2.addEventListener("click", selectOpacity2);
+//---------COLOR-OPACITY------->
