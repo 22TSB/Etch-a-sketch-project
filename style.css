@@ -78,7 +78,7 @@ button:hover {
 .sq-pixel-32,
 .sq-pixel-64,
 .sq-pixel-100 {
-    border: 1px solid rgba(8, 4, 4, 0.4);
+    border: 1px solid rgba(181, 181, 181, 0.4);
     background-color: rgba(0, 0, 0, 0);
 }
 
