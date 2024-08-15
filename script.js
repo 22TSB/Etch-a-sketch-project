@@ -27,15 +27,15 @@ const DEFAULT_GRID = () => {
 };
 
 const grid_16px = () => {
-  	for (i = 1; i <= gridLayout * gridLayout; ++i) {
-    	container.firstElementChild.remove();
-  	}
-  	for (i = 1; i <= 16 * 16; ++i) {
-    	const sq = document.createElement('div');
-    	sq.setAttribute('class', `sq-pixel-16 sq-pixel-16-${i}`);
-    	container.append(sq);
-  	}
-  	gridLayout = 16;
+	for (i = 1; i <= gridLayout * gridLayout; ++i) {
+		container.firstElementChild.remove();
+	}
+	for (i = 1; i <= 16 * 16; ++i) {
+		const sq = document.createElement('div');
+		sq.setAttribute('class', `sq-pixel-16 sq-pixel-16-${i}`);
+		container.append(sq);
+	}
+	gridLayout = 16;
 };
 
 const grid_32px = () => {
@@ -77,35 +77,36 @@ const grid_100px = () => {
 //---------FUNCTIONS----------->
 const color_square = (e) => {
 if (!gridColor) {
-    let square = e.target;
-    let available = square.getAttribute('class');
-    if (available !== 'grid-container') {
-      	let color_value = getColor.value;
-      	square.style.backgroundColor = color_value;
-		if (square.style.opacity === "0") {
-			square.style.opacity = "0";
+	let square = e.target;
+	let available = square.getAttribute('class');
+	if (available !== 'grid-container') {
+		let color_value = getColor.value;
+		square.style.backgroundColor = color_value;
+		// if (square.style.opacity === "0") {
+		// 	square.style.opacity = "0";
+		// }
+		square.style.opacity ??= 0;
+		switch (opacityLevel) {
+			case 0:
+			if (square.style.opacity < 1) {
+				square.style.opacity = String(Number(square.style.opacity) + 0.1);
+			}
+			break;
+				case 1:
+			if (square.style.opacity < 1) {
+				square.style.opacity = String(Number(square.style.opacity) + 0.2)
+			}
+			break;
+				case 2:
+			if (square.style.opacity < 1) {
+				square.style.opacity = String(Number(square.style.opacity) + 0.3)
+			}
+			break;
+				case 10:
+				square.style.opacity = "1";
+			break;
 		}
-    	switch (opacityLevel) {
-      		case 0:
-				if (square.style.opacity < 1) {
-        			square.style.opacity = String(Number(square.style.opacity) + 0.1);
-				}
-				break;
-      		case 1:
-				if (square.style.opacity < 1) {
-        			square.style.opacity = String(Number(square.style.opacity) + 0.2)
-				}
-				break;
-      		case 2:
-				if (square.style.opacity < 1) {
-					square.style.opacity = String(Number(square.style.opacity) + 0.3)
-				}
-				break;
-      		case 10:
-        		square.style.opacity = "1";
-				break;
-      	}
-  	}
+	}
 }
 else {
     let square = e.target;
@@ -113,72 +114,72 @@ else {
     if (available !== 'grid-container') {
       	let color_value = randomRGB();
       	square.style.backgroundColor = color_value;
-      	if (square.style.opacity === "0") {
-			square.style.opacity = "0";
+      	if (!square.style.opacity) {
+			square.style.opacity = 0;
 		}
 		switch (opacityLevel) {
 			case 0:
-				if (square.style.opacity < 1) {
-					square.style.opacity = String(Number(square.style.opacity) + 0.1);
-				}
-				break;
-		  	case 1:
-				if (square.style.opacity < 1) {
-					square.style.opacity = String(Number(square.style.opacity) + 0.2)
-				}
-				break;
+			if (square.style.opacity < 1) {
+				square.style.opacity = String(Number(square.style.opacity) + 0.1);
+			}
+			break;
+			case 1:
+			if (square.style.opacity < 1) {
+				square.style.opacity = String(Number(square.style.opacity) + 0.2)
+			}
+			break;
 			case 2:
-				if (square.style.opacity < 1) {
-					square.style.opacity = String(Number(square.style.opacity) + 0.3)
-				}
-				break;
+			if (square.style.opacity < 1) {
+				square.style.opacity = String(Number(square.style.opacity) + 0.3)
+			}
+			break;
 			case 10:
-				square.style.opacity = "1";
-				break;
-		}
-    }
-}
+			square.style.opacity = "1";
+			break;
+			}
+   		}
+	}
 };
 
 const resetFunction = () => {
-  grid_16px();
+  	grid_16px();
 };
 
 const randomRGB = () => {
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-  return '#' + randomColor;
+  	const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  	return '#' + randomColor;
 };
 
 const selectOpacity = () => {
-  opacityLevel = 0;
-  buttonOpacity.setAttribute('class', 'button-selected');
-  buttonOpacity1.removeAttribute('class', 'button-selected');
-  buttonOpacity2.removeAttribute('class', 'button-selected');
-  buttonMaxOpacity.removeAttribute('class', 'button-selected');
+	opacityLevel = 0;
+	buttonOpacity.setAttribute('class', 'button-selected');
+	buttonOpacity1.removeAttribute('class', 'button-selected');
+	buttonOpacity2.removeAttribute('class', 'button-selected');
+	buttonMaxOpacity.removeAttribute('class', 'button-selected');
 };
 
 const selectOpacity1 = () => {
-  opacityLevel = 1;
-  buttonOpacity.removeAttribute('class', 'button-selected');
-  buttonOpacity1.setAttribute('class', 'button-selected');
-  buttonOpacity2.removeAttribute('class', 'button-selected');
-  buttonMaxOpacity.removeAttribute('class', 'button-selected');
+	opacityLevel = 1;
+	buttonOpacity.removeAttribute('class', 'button-selected');
+	buttonOpacity1.setAttribute('class', 'button-selected');
+	buttonOpacity2.removeAttribute('class', 'button-selected');
+	buttonMaxOpacity.removeAttribute('class', 'button-selected');
 };
 
 const selectOpacity2 = () => {
-  opacityLevel = 2;
-  buttonOpacity.removeAttribute('class', 'button-selected');
-  buttonOpacity1.removeAttribute('class', 'button-selected');
-  buttonOpacity2.setAttribute('class', 'button-selected');
-  buttonMaxOpacity.removeAttribute('class', 'button-selected');
+	opacityLevel = 2;
+	buttonOpacity.removeAttribute('class', 'button-selected');
+	buttonOpacity1.removeAttribute('class', 'button-selected');
+	buttonOpacity2.setAttribute('class', 'button-selected');
+	buttonMaxOpacity.removeAttribute('class', 'button-selected');
 };
 
 const selectMaxOpacity = () => {
-  opacityLevel = 10;
-  buttonOpacity.removeAttribute('class', 'button-selected');
-  buttonOpacity1.removeAttribute('class', 'button-selected');
-  buttonOpacity2.removeAttribute('class', 'button-selected');
-  buttonMaxOpacity.setAttribute('class', 'button-selected');
+	opacityLevel = 10;
+	buttonOpacity.removeAttribute('class', 'button-selected');
+	buttonOpacity1.removeAttribute('class', 'button-selected');
+	buttonOpacity2.removeAttribute('class', 'button-selected');
+  	buttonMaxOpacity.setAttribute('class', 'button-selected');
 };
 
 const selectColor = () => {
