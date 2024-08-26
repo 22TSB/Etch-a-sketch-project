@@ -31,7 +31,7 @@ button {
     font-size: 14px;
 }
 
-button.reset-button:hover {
+button.resetButton:hover {
     cursor: pointer;
     background-color: rgb(194, 54, 54);
     transition: ease 0.4s;
@@ -43,37 +43,37 @@ button:hover {
     transition: ease 0.4s;
 }
 
-.button-selected {
+.buttonSelected {
     background-color: rgb(200, 200, 200);
 }
 
-.settings-buttons {
+.settingsButtons {
     gap: 12px;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.reset-button {
+.resetButton {
     background-color: rgb(216, 80, 80);
     color: white;
     font-weight: 700;
     font-family: 'Noto sans';
 }
 
-.align-text {
+.alignText {
     text-align: center;
 }
 
-.project-title {
+.projectTitle {
     text-shadow: 4px 2px 4px gray;
 }
 
-.settings-buttons {
+.settingsButtons {
     width: 50%;
 }
 
-.grid-container {
+.gridContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

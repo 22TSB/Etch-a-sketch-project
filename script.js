@@ -1,17 +1,17 @@
 //---------BUTTONS---------------->
-const container = document.querySelector('.grid-container');
-const buttonColor = document.querySelector('.color-buttons');
-const buttonRGB = document.querySelector('.color-button-rgb');
-const button16px = document.querySelector('.button-16px');
-const button32px = document.querySelector('.button-32px');
-const button64px = document.querySelector('.button-64px');
-const button100px = document.querySelector('.button-100px');
-const buttonReset = document.querySelector('.reset-button');
-const getColor = document.querySelector('.input-color');
-const buttonOpacity = document.querySelector('.opacity-button');
-const buttonOpacity1 = document.querySelector('.opacity1-button');
-const buttonOpacity2 = document.querySelector('.opacity2-button');
-const buttonMaxOpacity = document.querySelector('.maxOpacity-button');
+const container = document.querySelector('.gridContainer');
+const buttonColor = document.querySelector('.colorButtons');
+const buttonRGB = document.querySelector('.colorButtonRGB');
+const button16px = document.querySelector('.button16px');
+const button32px = document.querySelector('.button32px');
+const button64px = document.querySelector('.button64px');
+const button100px = document.querySelector('.button100px');
+const buttonReset = document.querySelector('.resetButton');
+const getColor = document.querySelector('.inputColor');
+const buttonOpacity = document.querySelector('.opacityButton');
+const buttonOpacity1 = document.querySelector('.opacity1Button');
+const buttonOpacity2 = document.querySelector('.opacity2Button');
+const buttonMaxOpacity = document.querySelector('.maxOpacityButton');
 
 var gridLayout = 16;
 var gridColor = false;
@@ -79,7 +79,7 @@ const color_square = (e) => {
 if (!gridColor) {
 	let square = e.target;
 	let available = square.getAttribute('class');
-	if (available !== 'grid-container') {
+	if (available !== 'gridContainer') {
 		let color_value = getColor.value;
 		square.style.backgroundColor = color_value;
 		// if (square.style.opacity === "0") {
@@ -111,7 +111,7 @@ if (!gridColor) {
 else {
     let square = e.target;
     let available = square.getAttribute('class');
-    if (available !== 'grid-container') {
+    if (available !== 'gridContainer') {
       	let color_value = randomRGB();
       	square.style.backgroundColor = color_value;
       	if (!square.style.opacity) {
@@ -152,46 +152,46 @@ const randomRGB = () => {
 
 const selectOpacity = () => {
 	opacityLevel = 0;
-	buttonOpacity.setAttribute('class', 'button-selected');
-	buttonOpacity1.removeAttribute('class', 'button-selected');
-	buttonOpacity2.removeAttribute('class', 'button-selected');
-	buttonMaxOpacity.removeAttribute('class', 'button-selected');
+	buttonOpacity.setAttribute('class', 'buttonSelected');
+	buttonOpacity1.removeAttribute('class', 'buttonSelected');
+	buttonOpacity2.removeAttribute('class', 'buttonSelected');
+	buttonMaxOpacity.removeAttribute('class', 'buttonSelected');
 };
 
 const selectOpacity1 = () => {
 	opacityLevel = 1;
-	buttonOpacity.removeAttribute('class', 'button-selected');
-	buttonOpacity1.setAttribute('class', 'button-selected');
-	buttonOpacity2.removeAttribute('class', 'button-selected');
-	buttonMaxOpacity.removeAttribute('class', 'button-selected');
+	buttonOpacity.removeAttribute('class', 'buttonSelected');
+	buttonOpacity1.setAttribute('class', 'buttonSelected');
+	buttonOpacity2.removeAttribute('class', 'buttonSelected');
+	buttonMaxOpacity.removeAttribute('class', 'buttonSelected');
 };
 
 const selectOpacity2 = () => {
 	opacityLevel = 2;
-	buttonOpacity.removeAttribute('class', 'button-selected');
-	buttonOpacity1.removeAttribute('class', 'button-selected');
-	buttonOpacity2.setAttribute('class', 'button-selected');
-	buttonMaxOpacity.removeAttribute('class', 'button-selected');
+	buttonOpacity.removeAttribute('class', 'buttonSelected');
+	buttonOpacity1.removeAttribute('class', 'buttonSelected');
+	buttonOpacity2.setAttribute('class', 'buttonSelected');
+	buttonMaxOpacity.removeAttribute('class', 'buttonSelected');
 };
 
 const selectMaxOpacity = () => {
 	opacityLevel = 10;
-	buttonOpacity.removeAttribute('class', 'button-selected');
-	buttonOpacity1.removeAttribute('class', 'button-selected');
-	buttonOpacity2.removeAttribute('class', 'button-selected');
-  	buttonMaxOpacity.setAttribute('class', 'button-selected');
+	buttonOpacity.removeAttribute('class', 'buttonSelected');
+	buttonOpacity1.removeAttribute('class', 'buttonSelected');
+	buttonOpacity2.removeAttribute('class', 'buttonSelected');
+  	buttonMaxOpacity.setAttribute('class', 'buttonSelected');
 };
 
 const selectColor = () => {
 	gridColor = false;
-	buttonColor.setAttribute('class', 'button-selected');
-	buttonRGB.removeAttribute('class', 'button-selected');
+	buttonColor.setAttribute('class', 'buttonSelected');
+	buttonRGB.removeAttribute('class', 'buttonSelected');
 };
 
 const selectRGB = () => {
 	gridColor = true;
-	buttonRGB.setAttribute('class', 'button-selected');
-	buttonColor.removeAttribute('class', 'button-selected');
+	buttonRGB.setAttribute('class', 'buttonSelected');
+	buttonColor.removeAttribute('class', 'buttonSelected');
 };
 
 //---------SELECT-COLOR-------->
