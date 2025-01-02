@@ -2,10 +2,6 @@
 const container = document.querySelector('.gridContainer');
 const buttonColor = document.querySelector('.colorButtons');
 const buttonRGB = document.querySelector('.colorButtonRGB');
-const button16px = document.querySelector('.button16px');
-const button32px = document.querySelector('.button32px');
-const button64px = document.querySelector('.button64px');
-const button100px = document.querySelector('.button100px');
 const buttonReset = document.querySelector('.resetButton');
 const getColor = document.querySelector('.inputColor');
 const buttonOpacity = document.querySelector('.opacityButton');
@@ -13,65 +9,26 @@ const buttonOpacity1 = document.querySelector('.opacity1Button');
 const buttonOpacity2 = document.querySelector('.opacity2Button');
 const buttonMaxOpacity = document.querySelector('.maxOpacityButton');
 
-var gridLayout = 16;
-var gridColor = false;
-var opacityLevel = 0;
+const rangeSize = document.querySelector('.rangeSize');
+
+let gridLayout = 16;
+let gridColor = false;
+let opacityLevel = 0;
 
 //---------GRID---------------->
-const DEFAULT_GRID = () => {
-    for (i = 1; i <= 16 * 16; ++i) {
+const DEFAULT_GRID = (size) => {
+    const dimension = 676 / size;
+    for (i = 1; i <= size * size; ++i) {
         const sq = document.createElement('div');
-        sq.setAttribute('class', `sq-pixel-16 sq-pixel-16-${i}`);
+        sq.style = `height: ${dimension}px; width: ${dimension}px; box-sizing: border-box;`;
         container.append(sq);
     }
 };
 
-const grid_16px = () => {
-    for (i = 1; i <= gridLayout * gridLayout; ++i) {
-        container.firstElementChild.remove();
+const emptyBoard = (size) => {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
     }
-    for (i = 1; i <= 16 * 16; ++i) {
-        const sq = document.createElement('div');
-        sq.setAttribute('class', `sq-pixel-16 sq-pixel-16-${i}`);
-        container.append(sq);
-    }
-    gridLayout = 16;
-};
-
-const grid_32px = () => {
-    for (i = 1; i <= gridLayout * gridLayout; ++i) {
-        container.firstElementChild.remove();
-    }
-    for (i = 1; i <= 32 * 32; ++i) {
-        const sq = document.createElement('div');
-        sq.setAttribute('class', `sq-pixel-32 sq-pixel-32-${i}`);
-        container.append(sq);
-    }
-    gridLayout = 32;
-};
-
-const grid_64px = () => {
-    for (i = 1; i <= gridLayout * gridLayout; ++i) {
-        container.firstElementChild.remove();
-    }
-    for (i = 1; i <= 64 * 64; ++i) {
-        const sq = document.createElement('div');
-        sq.setAttribute('class', `sq-pixel-64 sq-pixel-64-${i}`);
-        container.append(sq);
-    }
-    gridLayout = 64;
-};
-
-const grid_100px = () => {
-    for (i = 1; i <= gridLayout * gridLayout; ++i) {
-        container.firstElementChild.remove();
-    }
-    for (i = 1; i <= 100 * 100; ++i) {
-        const sq = document.createElement('div');
-        sq.setAttribute('class', `sq-pixel-100 sq-pixel-100-${i}`);
-        container.append(sq);
-    }
-    gridLayout = 100;
 };
 
 //---------FUNCTIONS----------->
@@ -141,7 +98,9 @@ const color_square = (e) => {
 };
 
 const resetFunction = () => {
-    grid_16px();
+    emptyBoard(gridLayout);
+    DEFAULT_GRID(16);
+    gridLayout = 16;
 };
 
 const randomRGB = () => {
@@ -197,13 +156,6 @@ const selectRGB = () => {
 buttonColor.addEventListener('click', selectColor);
 buttonRGB.addEventListener('click', selectRGB);
 
-//---------GRID---------------->
-button16px.addEventListener("click", grid_16px);
-button32px.addEventListener('click', grid_32px);
-button64px.addEventListener('click', grid_64px);
-button100px.addEventListener('click', grid_100px);
-buttonReset.addEventListener('click', resetFunction);
-
 //---------COLOR-GRID---------->
 container.addEventListener('mouseover', color_square);
 
@@ -213,5 +165,15 @@ buttonOpacity1.addEventListener('click', selectOpacity1);
 buttonOpacity2.addEventListener('click', selectOpacity2);
 buttonMaxOpacity.addEventListener('click', selectMaxOpacity);
 
+//---------RESET-GRID------->
+buttonReset.addEventListener('click', resetFunction);
+
 //---------DEFAUL-GRID------->
-DEFAULT_GRID();
+rangeSize.addEventListener('input', (e) => {
+    const size = e.target.value;
+    emptyBoard(gridLayout);
+    DEFAULT_GRID(size);
+    gridLayout = size;
+});
+
+DEFAULT_GRID(16);
