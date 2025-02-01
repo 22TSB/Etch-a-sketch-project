@@ -66,9 +66,11 @@ button:hover {
 }
 
 .projectTitle {
-    padding-top: 20px;
+    background: linear-gradient(45deg, #fd0000, rgb(255, 0, 255), aqua);
+    color: transparent;
+    background-clip: text;
+    padding: 20px;
     font-size: 2rem;
-    text-shadow: 4px 2px 4px gray;
 }
 
 .settingsButtons {
