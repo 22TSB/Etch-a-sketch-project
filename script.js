@@ -168,11 +168,6 @@ container.addEventListener('mousedown', function (event) {
     event.preventDefault();
     if (isDown == false) {
         isDown = true;
-        setTimeout(function () {
-            if (isDown == true) {
-                console.log('Hold');
-            }
-        }, 1);
     }
 });
 
@@ -180,7 +175,6 @@ container.addEventListener('mouseover', color_square);
 
 container.addEventListener('mouseup', function (event) {
     isDown = false;
-    console.log("baaaa");
 });
 
 //---------COLOR-OPACITY------->
