@@ -33,6 +33,10 @@ const emptyBoard = (size) => {
 
 //---------FUNCTIONS----------->
 const color_square = (e) => {
+    if (!isDown) {
+        return;
+    }
+    
     if (!gridColor) {
         let square = e.target;
         let available = square.getAttribute('class');
@@ -157,7 +161,27 @@ buttonColor.addEventListener('click', selectColor);
 buttonRGB.addEventListener('click', selectRGB);
 
 //---------COLOR-GRID---------->
+
+let isDown = false;
+const secondsToHold = 1;
+container.addEventListener('mousedown', function (event) {
+    event.preventDefault();
+    if (isDown == false) {
+        isDown = true;
+        setTimeout(function () {
+            if (isDown == true) {
+                console.log('Hold');
+            }
+        }, 1);
+    }
+});
+
 container.addEventListener('mouseover', color_square);
+
+container.addEventListener('mouseup', function (event) {
+    isDown = false;
+    console.log("baaaa");
+});
 
 //---------COLOR-OPACITY------->
 buttonOpacity.addEventListener('click', selectOpacity);
